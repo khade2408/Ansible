@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Install package git
+    apt: name=git state=present
+
+  - name: Install package
+    apt: name=vsftpd sttae=present
+
+  - name: start vsftpd service
+   service: name=vsftpd state=started
